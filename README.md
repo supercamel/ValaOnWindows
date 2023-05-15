@@ -246,3 +246,44 @@ rm -rfd builddir
 meson setup --buildtype release builddir
 ninja -C builddir
 ```
+
+## Deployment
+
+The gtk_app example contains a script called 'deploy.sh'
+
+This bash script automates the process of creating an installer for a GTK application on Windows. The script performs the following operations:
+
+1. Setting Up Variables: The script initializes variables containing important details of your application. This includes the application name, executable name, build directory, deploy directory, theme name, and icon file path.
+
+2. Directory Creation and Structuring: The script creates the essential directories (bin, etc, share) within your defined deployment directory.
+
+3. DLL Copying: The script identifies the necessary DLL dependencies of your application executable using the ldd command, and copies these DLL files from your build directory to the bin directory in the deploy folder.
+
+4. Copying Required GTK Files: The script copies additional necessary files for GTK to function correctly. This includes certain executables, configuration files, libraries, shared resources, and theme files. The files are taken from various mingw64 directories and copied into their respective directories in the deploy folder.
+
+5. Creating NSIS Script: The script automatically generates an NSIS script that defines the appearance and functionality of your installer, including the installation and uninstallation procedures, shortcut creation, and writing necessary registry keys. The script is saved with the name ${app_name}Installer.nsi.
+
+6. Running NSIS: The script executes makensis to create the installer executable from the generated NSIS script.
+
+Remember to adjust the variables at the start of the script to align with the specific details of your project. This script serves as a convenient tool to automate the process of creating a Windows installer for your GTK application.
+
+This script works well for simple cases. However, with the addition of complex dependencies, more files might need inclusion in the deploy directory. The 'pacman' tool can provide a list of files installed in the MSYS environment, helping discern necessary dependency-related files. For example, if 'libjpeg' is a dependency, 'pacman -Ql mingw-w64-x86_64-libjpeg-turbo' can list all its associated files installed in the MSYS environment. Identifying these files can aid in deciding what needs to be added to the deploy directory. This script is a helpful starting point for building installers.
+
+
+## Applying a Custom Theme
+To apply a custom theme, download one from sources like gnome-look.org. For example, the Peace-GTK theme:
+
+[Peace-GTK Theme](https://github.com/L4ki/Peace-Plasma-Themes/tree/main)
+
+Download the theme and copy the Peace-GTK folder to **C:\msys64\mingw64\share\themes**.
+Create a new file **C:\msys64\mingw64\share\gtk-3.0\settings.ini** with the following content:
+```
+[Settings]
+gtk-theme-name=Peace-GTK
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle=hintful
+gtk-xft-rgba=rgb
+```
+Launch builddir/app to see the new theme applied.
+Update the deploy.sh script to set the theme name as "Peace-GTK" (or your preferred theme), and the installed application will use this theme.
