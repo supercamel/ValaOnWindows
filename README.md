@@ -6,7 +6,15 @@ This tutorial guides new programmers through the process of setting up a Vala de
 
 Download and install msys2 from https://www.msys2.org/
 
-Msys2 is a unix-like environment for Windows. It provides a shell, pacman package manager, and other tools commonly found in a unix environment.
+MSYS2 is a software distribution and a development platform for Windows. It provides a Unix-like environment which makes it easier to port and run Unix software on Windows. MSYS2 includes a command-line terminal, a package manager (Pacman), and a selection of updated, easily-installable Unix tools.
+
+For Vala development specifically, MSYS2 is particularly useful because:
+
+1. Package Management: MSYS2's package manager, Pacman, simplifies the process of installing and updating software, including the Vala compiler, libraries, and tools necessary for development.
+
+2. Unix-like Environment: Many programming tools, including those used in Vala development, originate from Unix-like systems and often have better support and more features in these environments. MSYS2 provides a Unix-like shell and environment which can make working with these tools more straightforward.
+
+3. MINGW64: This component of MSYS2 provides a set of compilers and libraries that can create Windows 64-bit executables that do not depend on a compatibility layer. This is important for creating native Windows applications.
 
 The installer will install multiple environments for different compilers. We will use the MSYS2 MINGW64 environment. 
 
@@ -34,7 +42,11 @@ Install GCC and the MINGW64 toolchain by running:
 pacman -S mingw-w64-x86_64-toolchain
 ```
 
-Install Meson, a build system, by running:
+## Meson 
+
+Meson is a fast and user-friendly build system designed to handle the needs of modern software developers. It is the build system of choice for many large scale projects as it simplifies the build process and reduces compilation times. In the context of Vala, Meson manages dependencies, compiles the source code, and links the result into an executable program or library, all with simple, high-level configuration.
+
+Install Meson:
 
 ```
 pacman -S mingw-w64-x86_64-meson
@@ -107,6 +119,12 @@ Run the project:
 ./builddir/app.exe
 ```
 
+# Vala and Visual Studio Code
+
+Vala, with its modern syntax and powerful features, allows developers to write complex and efficient software with less effort. Being part of the GObject type system, Vala is inherently compatible with a large number of libraries written in C, making it a robust choice for GNOME and GTK development.
+
+In this setup, Visual Studio Code (VSCode) serves as our primary code editor. While there are many code editors available, VSCode stands out due to its extensive language support, robust plugin ecosystem, and deep integration capabilities. The Vala extension in VSCode offers features like syntax highlighting, and VSCode's built-in terminal can be integrated with MSYS2, providing an unified development environment. This setup ensures that developers can write, build, and debug Vala code efficiently, all within the same workspace.
+
 # Configure Visual Studio Code
 
 Install the Vala plugin for Visual Studio Code.
@@ -136,7 +154,7 @@ Save the settings.json file.
 With this configuration, opening a new terminal in Visual Studio Code will launch the MINGW64 shell, giving you direct access to the Vala build tools.
 
 
-## Add the MSYS2 MINW64 bin directory to your path
+## Add the MSYS2 MINGW64 bin directory to your path
 
 To add the C:\msys64\mingw64\bin directory to your PATH environment variable in Microsoft Windows, follow these steps:
 
@@ -229,7 +247,9 @@ executable('app', sources, dependencies: dependencies, gui_app: true)
 
 # Deploying Your Application
 
-## NSIS
+## NSIS (Nullsoft Scriptable Install System)
+
+NSIS is a professional open source system that is used to create Windows installers. It is script-driven, which allows you to automate the creation of your installers, and it has a minimal overhead size-wise, which keeps your installers lightweight. NSIS makes it easy for end users to install software, and it gives you the ability to include everything that your software requires, such as runtime libraries, in one single installer. This greatly simplifies the process of software distribution and installation.
 
 Install nsis using Pacman
 
