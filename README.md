@@ -212,6 +212,21 @@ Install Gtk3 using Pacman
 pacman -S mingw-w64-x86_64-gtk3
 ```
 
+Update the dependencies in meson.build to include gtk3
+```
+dependencies = [
+  dependency('glib-2.0'),
+  dependency('gobject-2.0'),
+  dependency('gtk+-3.0'),
+  meson.get_compiler('c').find_library('m', required: false)
+]
+```
+
+Tell meson that the executable is now a GUI application. This prevents the console window from appearing when the application is run.
+```
+executable('app', sources, dependencies: dependencies, gui_app: true)
+```
+
 # Deploying Your Application
 
 ## NSIS
