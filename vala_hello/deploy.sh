@@ -21,7 +21,7 @@ do
     cp "$dll" "${deploy_dir}/bin"
 done
 
-# Copy other required things for Gtk to work nicely
+# Copy anything else required for the application to run
 echo "Copying other necessary files..."
 cp -r share ${deploy_dir}
 

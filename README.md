@@ -121,7 +121,7 @@ Run the project:
 
 # Vala and Visual Studio Code
 
-Vala, with its modern syntax and powerful features, allows developers to write complex and efficient software with less effort. Being part of the GObject type system, Vala is inherently compatible with a large number of libraries written in C, making it a robust choice for GNOME and GTK development.
+Vala, with its modern syntax and powerful features, allows developers to write complex and efficient software with less effort. Being part of the GObject type system, Vala is inherently compatible with a large number of libraries written in C, making it a robust choice for GTK development.
 
 In this setup, Visual Studio Code (VSCode) serves as our primary code editor. While there are many code editors available, VSCode stands out due to its extensive language support, robust plugin ecosystem, and deep integration capabilities. The Vala extension in VSCode offers features like syntax highlighting, and VSCode's built-in terminal can be integrated with MSYS2, providing an unified development environment. This setup ensures that developers can write, build, and debug Vala code efficiently, all within the same workspace.
 
