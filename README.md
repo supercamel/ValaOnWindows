@@ -296,7 +296,7 @@ To apply a custom theme, download one from sources like gnome-look.org. For exam
 [Peace-GTK Theme](https://github.com/L4ki/Peace-Plasma-Themes/tree/main)
 
 Download the theme and copy the Peace-GTK folder to **C:\msys64\mingw64\share\themes**.
-Create a new file **C:\msys64\mingw64\share\gtk-3.0\settings.ini** with the following content:
+Create a new file **C:\msys64\mingw64\etc\gtk-3.0\settings.ini** with the following content:
 ```
 [Settings]
 gtk-theme-name=Peace-GTK
