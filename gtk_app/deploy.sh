@@ -27,7 +27,7 @@ cp /mingw64/bin/gdbus.exe ${deploy_dir}/bin/gdbus.exe
 cp -r /mingw64/etc/gtk-3.0 ${deploy_dir}/etc/gtk-3.0
 cp -r /mingw64/etc/fonts ${deploy_dir}/etc/fonts
 mkdir -p ${deploy_dir}/lib/gdk-pixbuf-2.0/2.10.0
-cp -r /mingw64/lib/gdk-pixbuf-2.0/2.10.0 ${deploy_dir}/lib/gdk-pixbuf-2.0/2.10.0
+cp -r /mingw64/lib/gdk-pixbuf-2.0/2.10.0 ${deploy_dir}/lib/gdk-pixbuf-2.0
 cp -r share ${deploy_dir}
 cp -r /mingw64/share/glib-2.0 ${deploy_dir}/share/glib-2.0
 cp -r /mingw64/share/gtk-3.0 ${deploy_dir}/share/gtk-3.0
