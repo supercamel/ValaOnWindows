@@ -8,6 +8,11 @@ deploy_dir="deploy"
 theme_name="Default"
 icon_file="share\icon.ico"
 
+# Rebuild the exe as a release build
+rm -rfd builddir
+meson setup --buildtype release builddir
+ninja -C builddir
+
 # Copy DLLS
 echo "Copying DLLs..."
 mkdir -p "${deploy_dir}/bin"
@@ -35,6 +40,16 @@ cp -r /mingw64/share/icons ${deploy_dir}/share/icons
 cp -r /mingw64/share/icu ${deploy_dir}/share/icu
 cp -r /mingw64/share/locale ${deploy_dir}/share/locale
 cp -r /mingw64/share/themes/${theme_name} ${deploy_dir}/share/themes/${theme_name}
+
+# Write the theme to gtk settings
+cat << EOF > ${deploy_dir}/etc/gtk-3.0/settings.ini
+[Settings]
+gtk-theme-name=${theme_name}
+gtk-xft-antialias=1
+gtk-xft-hinting=1
+gtk-xft-hintstyle=hintful
+gtk-xft-rgba=rgb
+EOF
 
 # Create NSIS script
 echo "Creating NSIS script..."
