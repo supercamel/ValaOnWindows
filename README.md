@@ -1,6 +1,6 @@
 # ValaOnWindows
 
-This guide will walk you through setting up Vala development on Windows using MSYS2, configuring Visual Studio Code for Vala projects, and deploying your application. Follow the steps below to get started.
+This tutorial guides new programmers through the process of setting up a Vala development environment on Windows using MSYS2, configuring Visual Studio Code (VSCode) for Vala projects, and deploying applications. Let's begin.
 
 # Install msys2
 
