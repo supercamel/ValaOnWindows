@@ -305,7 +305,7 @@ This bash script automates the process of creating an installer for a GTK applic
 
 2. Directory Creation and Structuring: The script creates the essential directories (bin, etc, share) within your defined deployment directory.
 
-3. DLL Copying: The script identifies the necessary DLL dependencies of your application executable using the ldd command, and copies these DLL files from your build directory to the bin directory in the deploy folder.
+3. DLL Copying: The script identifies the necessary DLL dependencies of your application executable using the ldd command, and copies these DLL files from MINGW64/bin directory to the bin directory in the deploy folder.
 
 4. Copying Required GTK Files: The script copies additional necessary files for GTK to function correctly. This includes certain executables, configuration files, libraries, shared resources, and theme files. The files are taken from various mingw64 directories and copied into their respective directories in the deploy folder.
 
