@@ -9,9 +9,9 @@ theme_name="Default"
 icon_file="share\icon.ico"
 
 # Rebuild the exe as a release build
-rm -rfd builddir
-meson setup --buildtype release builddir
-ninja -C builddir
+rm -rfd ${build_dir)
+meson setup --buildtype release ${build_dir}
+ninja -C ${build_dir}
 
 # Copy DLLS
 echo "Copying DLLs..."
