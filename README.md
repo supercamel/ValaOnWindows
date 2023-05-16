@@ -23,6 +23,7 @@ This tutorial guides new programmers through the process of setting up a Vala de
     * [Building Release Code](#building-release-code)
     * [Deployment](#deployment)
     * [Applying a Custom Theme](#applying-a-custom-theme)
+* [Building Libraries](#building-libraries)
 
 # Install msys2
 
@@ -334,3 +335,54 @@ gtk-xft-rgba=rgb
 ```
 Launch builddir/app to see the new theme applied.
 Update the deploy.sh script to set the theme name as "Peace-GTK" (or your preferred theme), and the installed application will use this theme.
+
+# Building Libraries 
+
+To build libraries with GObject Introspection and make them available for use in Vala applications, follow these steps:
+
+1. Install GObject Introspection:
+
+```
+pacman -S mingw-w64-x86_64-gobject-introspection
+```
+
+This command installs the necessary package for GObject Introspection under MSYS2.
+
+2. Develop your Vala library using the Vala library template:
+
+Use the Vala library template repository as a starting point for developing your library. The template provides a foundation for building a Vala library that can be easily integrated with other Vala applications.
+
+Note that the Vala library template is inherently cross platform and can be used to build libraries under both Windows and Linux. 
+
+3. Build and install your library:
+
+Follow the instructions in the Vala library template repository to build and install your library using Meson. Once installed, your library will be available for use in other Vala applications.
+
+4. Add the library as a dependency:
+
+In your Vala application's Meson build file, add your library as a dependency. This ensures that your application can use the functions, objects, and types provided by your library.
+
+For example, in your Meson build file, add the following line to include the library as a dependency:
+
+```
+dependencies = [
+  ...
+  dependency('your-library-name'),
+  ...
+]
+```
+
+Replace 'your-library-name' with the actual name of your library.
+
+5. Use your library in your Vala application:
+
+In your Vala application's source code, import and use the functions, objects, and types provided by your library as needed. This allows you to leverage the functionality of your library within your application.
+
+Note: Your Vala library can also be used with other languages like Python and Lua under MSYS2 through GObject Introspection. For example, in Python, you can use the gi.repository module to access the Vala library's functionality. Here's a small Python snippet as an example:
+
+```
+from gi.repository import YourLibraryName
+
+# Use the functions, objects, and types provided by YourLibraryName
+```
+By following these steps, you can build libraries with GObject Introspection and make them readily available for use in Vala applications, as well as other supported languages like Python and Lua under MSYS2.
