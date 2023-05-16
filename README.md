@@ -350,6 +350,8 @@ This command installs the necessary package for GObject Introspection under MSYS
 
 2. Develop your Vala library using the Vala library template:
 
+[Vala library template](https://github.com/supercamel/vala_lib_template)
+
 Use the Vala library template repository as a starting point for developing your library. The template provides a foundation for building a Vala library that can be easily integrated with other Vala applications.
 
 Note that the Vala library template is inherently cross platform and can be used to build libraries under both Windows and Linux. 
@@ -376,7 +378,7 @@ Replace 'your-library-name' with the actual name of your library.
 
 5. Use your library in your Vala application:
 
-In your Vala application's source code, import and use the functions, objects, and types provided by your library as needed. This allows you to leverage the functionality of your library within your application.
+In your Vala application's source code, import and use the functions, objects, and types provided by your library as needed. This allows you to leverage the functionality of your library within your application. The deploy script used earlier will automatically detect and include required DLLs for your new library, however if your library includes other assets you will need to modify the deploy script to include those assets. 
 
 Note: Your Vala library can also be used with other languages like Python and Lua under MSYS2 through GObject Introspection. For example, in Python, you can use the gi.repository module to access the Vala library's functionality. Here's a small Python snippet as an example:
 
