@@ -2,6 +2,28 @@
 
 This tutorial guides new programmers through the process of setting up a Vala development environment on Windows using MSYS2, configuring Visual Studio Code (VSCode) for Vala projects, and deploying applications. Let's begin.
 
+# Contents
+
+* [Install msys2](#install-msys2)
+* [Install Vala](#install-vala)
+    * [Meson](#meson)
+* [Creating a Vala Project](#creating-a-vala-project)
+    * [Set up the project structure](#set-up-the-project-structure)
+    * [Write your Vala code](#write-your-vala-code)
+    * [Building and Running the Project](#building-and-running-the-project)
+* [Vala and Visual Studio Code](#vala-and-vistual-studio_code)
+    * [Configure Visual Studio Code](#configure-visual-studio-code)
+    * [Add the MSYS2 MINGW64 bin directory to your path](#add-the-msys2-mingw64-bin-directory-to-your-path)
+    * [Install the GDB Extension for Visual Studio Code](#install-the-gdb-extension-for-visual-studio-code)
+    * [Adding a Launch Configuration for Debugging](#adding-a-launch-configuration-for-debugging)
+    * [Debugging Your Application](#debugging-your-application)
+* [Gtk Development](#gtk-development)
+* [Deploying Your Application](#deploying-your-application)
+    * [NSIS (Nullsoft Scriptable Install System)](#nsis-nullsoft-scriptable-install-system)
+    * [Building Release Code](#building-release-code)
+    * [Deployment](#deployment)
+    * [Applying a Custom Theme](#applying-a-custom-theme)
+
 # Install msys2
 
 Download and install msys2 from https://www.msys2.org/
