@@ -41,6 +41,7 @@ Install GCC and the MINGW64 toolchain by running:
 ```
 pacman -S mingw-w64-x86_64-toolchain
 ```
+You will be prompted to make a selection. Press enter to accept and install all packages in the group. 
 
 ## Meson 
 
@@ -127,9 +128,10 @@ In this setup, Visual Studio Code (VSCode) serves as our primary code editor. Wh
 
 # Configure Visual Studio Code
 
-Install the Vala plugin for Visual Studio Code.
-
-In Visual Studio Code, open the .vscode/settings.json file and add the following configuration:
+1. Install the Vala plugin for Visual Studio Code.
+2. Open the Command Palette (CTRL + SHIFT + P)
+3. Enter and select the "Preferences: Open User Settings (JSON) Option
+4. Add the following configuration:
 
 ```
 "terminal.integrated.profiles.windows": {
@@ -144,7 +146,8 @@ In Visual Studio Code, open the .vscode/settings.json file and add the following
         "CHERE_INVOKING": "1"
       }
     }
-}
+},
+"terminal.integrated.defaultProfile.windows": "MSYS2"
 ```
 
 This configuration sets up the MSYS2 MINGW64 shell as the integrated terminal in Visual Studio Code. It allows you to run Meson and Ninja commands directly from within the editor.
@@ -156,7 +159,9 @@ With this configuration, opening a new terminal in Visual Studio Code will launc
 
 ## Add the MSYS2 MINGW64 bin directory to your path
 
-To add the C:\msys64\mingw64\bin directory to your PATH environment variable in Microsoft Windows, follow these steps:
+Add the MINGW64 bin directory to your PATH environment variable in Microsoft Windows. The default location is C:\msys64\mingw64\bin.
+
+Follow these steps:
 
 * Open the Start menu and search for "System Properties" or "Advanced System Settings" and select the corresponding result.
 * In the System Properties window, click on the "Advanced" tab.
@@ -164,7 +169,7 @@ To add the C:\msys64\mingw64\bin directory to your PATH environment variable in 
 * In the Environment Variables window, you'll see two sections: User variables and System variables. We will be modifying the System variables section.
 * Scroll down the list of System variables and locate the "Path" variable. Select it and click on the "Edit" button.
 * A new Edit Environment Variable window will appear. This window contains a list of semicolon-separated paths. Each path represents a directory in the PATH variable.
-* Click on the "New" button and add the path "C:\msys64\mingw64\bin". Make sure to type it exactly as shown here.
+* Click on the "New" button and enter the MINGW64 bin directory. The default location is "C:\msys64\mingw64\bin". 
 * Click "OK" to close the Edit Environment Variable window.
 * Click "OK" again to close the Environment Variables window.
 * Finally, click "OK" in the System Properties window to save the changes.
@@ -269,7 +274,7 @@ ninja -C builddir
 
 ## Deployment
 
-The gtk_app example contains a script called 'deploy.sh'
+The [gtk_app example](https://github.com/supercamel/ValaOnWindows/tree/main/gtk_app) contains a script called 'deploy.sh'
 
 This bash script automates the process of creating an installer for a GTK application on Windows. The script performs the following operations:
 
