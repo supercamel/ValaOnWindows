@@ -9,7 +9,7 @@ theme_name="Default"
 icon_file="share\icon.ico"
 
 # Rebuild the exe as a release build
-rm -rfd ${build_dir)
+rm -rfd ${build_dir}
 meson setup --buildtype release ${build_dir}
 ninja -C ${build_dir}
 
