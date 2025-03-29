@@ -204,7 +204,7 @@ To enable debugging support for Vala projects in Visual Studio Code, install the
 
 Go to the Extensions view by clicking on the square icon in the left sidebar or pressing Ctrl+Shift+X.
 
-Search for "GDB Debugger - Beyond" in the extensions search bar.
+Search for "Native Debug" in the extensions search bar.
 
 Click on the extension and select "Install".
 
@@ -230,7 +230,7 @@ To set up a launch configuration for debugging your Vala application in Visual S
             "type": "gdb",
             "request": "launch",
             "name": "Launch(gdb)",
-            "program": "${workspaceFolder}\\builddir\\app.exe",
+            "target": ".\\builddir\\app.exe",
             "cwd": "${workspaceRoot}"
         }
     ]
@@ -238,6 +238,8 @@ To set up a launch configuration for debugging your Vala application in Visual S
 ```
 
 This configuration specifies the type of debugger to use, the request to launch the debugger, the name of the launch configuration, the path to the compiled executable file, and the current working directory.
+
+Note: if you have not install GDB, use the command `pacman -S mingw-w64-x86_64-gdb`
 
 # Debugging Your Application
 
