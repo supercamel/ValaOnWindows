@@ -200,7 +200,7 @@ Follow these steps:
 
 ## Install the GDB Extension for Visual Studio Code
 
-To enable debugging support for Vala projects in Visual Studio Code, install the "GDB Debugger - Beyond" extension by following these steps:
+To enable debugging support for Vala projects in Visual Studio Code, install the "Native Debug" extension by following these steps:
 
 Go to the Extensions view by clicking on the square icon in the left sidebar or pressing Ctrl+Shift+X.
 
